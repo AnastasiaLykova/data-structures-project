@@ -7,7 +7,8 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        pass
+        self.data = data
+        self.next_node = next_node
 
 
 class Stack:
@@ -15,7 +16,7 @@ class Stack:
 
     def __init__(self):
         """Конструктор класса Stack"""
-        pass
+        self.top = None
 
     def push(self, data):
         """
@@ -23,7 +24,17 @@ class Stack:
 
         :param data: данные, которые будут добавлены на вершину стека
         """
-        pass
+        new_node = Node(data, None)
+
+        # if we have a top node this means that the stack isn't empty
+        if self.top:
+
+            # based on the PUSH operation instructions
+            # the next node must be the current top node
+            new_node.next_node = self.top
+
+        # otherwise, we will set the new top node to be the new_node
+        self.top = new_node
 
     def pop(self):
         """
