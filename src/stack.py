@@ -42,4 +42,14 @@ class Stack:
 
         :return: данные удаленного элемента
         """
-        pass
+        # Special case: if top node is none (if stack is empty)
+        # we will return none
+        if self.top is None:
+            return None
+
+        # otherwise
+        result = self.top.data  # the node thats left in the stack
+        self.top = self.top.next_node  # self.top is now going to be equal to
+        # whatever it's pointing to
+
+        return result

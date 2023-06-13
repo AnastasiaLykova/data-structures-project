@@ -16,3 +16,12 @@ class TestStack(unittest.TestCase):
         stack.push('data1')
         self.assertEqual(stack.top.data, 'data1')
         self.assertEqual(stack.top.next_node, None)
+
+    def test_pop(self):
+        stack_2 = Stack()
+        stack_2.push('data1')
+        data = stack_2.pop()
+        assert stack_2.top is None
+        assert data == 'data1'
+        data = stack_2.pop()
+        assert data is None
