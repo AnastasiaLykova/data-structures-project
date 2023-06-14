@@ -21,7 +21,13 @@ class TestStack(unittest.TestCase):
         stack_2 = Stack()
         stack_2.push('data1')
         data = stack_2.pop()
-        assert stack_2.top is None
-        assert data == 'data1'
+        self.assertIsNone(stack_2.top)
+        self.assertEqual(data, 'data1')
         data = stack_2.pop()
-        assert data is None
+        self.assertIsNone(data)
+
+    def test_str(self):
+        stack_3 = Stack()
+        stack_3.push('data1')
+        stack_3.push('data2')
+        self.assertEqual(str(stack_3), 'data2\ndata1')
