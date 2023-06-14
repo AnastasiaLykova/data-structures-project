@@ -44,4 +44,9 @@ class Queue:
 
     def __str__(self):
         """Магический метод для строкового представления объекта"""
-        pass
+        temp_list = []
+        temp_obj = self.head
+        while temp_obj is not None:
+            temp_list.append(temp_obj.data)
+            temp_obj = temp_obj.next_node
+        return "\n".join(temp_list)
