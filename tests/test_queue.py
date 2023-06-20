@@ -10,7 +10,7 @@ class TestNode(unittest.TestCase):
         self.assertEqual(n1.data, 5)
 
 
-class TestStack(unittest.TestCase):
+class TestQueue(unittest.TestCase):
     def test_enqueue(self):
         queue = Queue()
         queue.enqueue('data1')
@@ -25,3 +25,9 @@ class TestStack(unittest.TestCase):
         queue_2.enqueue('data1')
         queue_2.enqueue('data2')
         self.assertEqual(str(queue_2), 'data1\ndata2')
+
+    def test_dequeue(self):
+        queue_3 = Queue()
+        queue_3.enqueue('data1')
+        self.assertEqual(queue_3.dequeue(), 'data1')
+        self.assertEqual(queue_3.dequeue(), None)
