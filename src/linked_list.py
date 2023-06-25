@@ -38,6 +38,16 @@ class LinkedList:
             self.tail.next_node = new_node
             self.tail = new_node
 
+    def to_list(self):
+        data_list = []
+        node = self.head
+        if node is None:
+            return None
+        while node:
+            data_list.append(node.data)
+            node = node.next_node
+        return data_list
+
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
         node = self.head
