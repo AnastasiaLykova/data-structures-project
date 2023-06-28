@@ -32,3 +32,19 @@ class TestLinkedList(unittest.TestCase):
         ll_3.insert_at_end({'id': 3})
         ll_3.insert_beginning({'id': 0})
         self.assertEqual(str(ll_3), "{'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None")
+
+    def test_to_list(self):
+        ll_4 = LinkedList()
+        lst = ll_4.to_list()
+        self.assertEqual(lst, None)
+        ll_4.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        lst1 = ll_4.to_list()
+        self.assertEqual(lst1[0], {'id': 1, 'username': 'lazzy508509'})
+
+    def test_get_data_by_id(self):
+        ll_5 = LinkedList()
+        ll_5.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+        ll_5.insert_at_end('idusername')
+        ll_5.insert_at_end([1, 2, 3])
+        self.assertEqual(ll_5.get_data_by_id(2), None)
+        self.assertEqual(ll_5.get_data_by_id(1), {'id': 1, 'username': 'lazzy508509'})
