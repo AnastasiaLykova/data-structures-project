@@ -48,6 +48,17 @@ class LinkedList:
             node = node.next_node
         return data_list
 
+    def get_data_by_id(self, key):
+        temp_list = self.to_list()
+        for item in temp_list:
+            try:
+                item['id'] == key
+            except TypeError:
+                print('Данные не являются словарем или в словаре нет id')
+            else:
+                if item['id'] == key:
+                    return item
+
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""
         node = self.head
