@@ -42,22 +42,24 @@ class LinkedList:
         data_list = []
         node = self.head
         if node is None:
-            return None
+            return data_list
         while node:
             data_list.append(node.data)
             node = node.next_node
         return data_list
 
     def get_data_by_id(self, key):
-        temp_list = self.to_list()
-        for item in temp_list:
+        node = self.head
+        while node:
             try:
-                item['id'] == key
+                node.data['id'] == key
             except TypeError:
                 print('Данные не являются словарем или в словаре нет id')
             else:
-                if item['id'] == key:
-                    return item
+                if node.data['id'] == key:
+                    return node.data
+            finally:
+                node = node.next_node
 
     def __str__(self) -> str:
         """Вывод данных односвязного списка в строковом представлении"""

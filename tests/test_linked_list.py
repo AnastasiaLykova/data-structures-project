@@ -36,7 +36,7 @@ class TestLinkedList(unittest.TestCase):
     def test_to_list(self):
         ll_4 = LinkedList()
         lst = ll_4.to_list()
-        self.assertEqual(lst, None)
+        self.assertEqual(lst, [])
         ll_4.insert_beginning({'id': 1, 'username': 'lazzy508509'})
         lst1 = ll_4.to_list()
         self.assertEqual(lst1[0], {'id': 1, 'username': 'lazzy508509'})
